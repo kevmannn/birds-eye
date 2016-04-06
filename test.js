@@ -2,28 +2,28 @@ import test from 'ava';
 import birdsEye from './';
 
 const obj = {
-  num: 42,
-  q: {
-    name: 4
+  a: 42,
+  b: {
+    c: 4
   },
-  parent: {
-    once: 'once',
-    twice: '22',
-    thrice: {},
-    fourTimes: {
-      bool: true,
-      m: null,
-      n: {},
-      o: {
-        p: 42,
-        q: {
-          r: undefined
+  d: {
+    e: 'once',
+    f: '22',
+    g: {},
+    h: {
+      i: true,
+      j: null,
+      k: {},
+      l: {
+        m: 42,
+        n: {
+          o: undefined
         }
       },
-      s: 42
+      p: 42
     }
   },
-  t: true
+  q: true
 }
 
 const out = 
@@ -48,4 +48,5 @@ test('atDepth', t => {
   t.same(birdsEye(obj).atDepth(3), ['boolean', null]);
   t.same(birdsEye(obj).atDepth(4), ['number', 'number']);
   t.same(birdsEye(obj).atDepth(5), ['undefined']);
+  t.same(birdsEye(obj).atDepth(51), []);
 })

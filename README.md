@@ -1,6 +1,6 @@
 # birds-eye
 
-> nested obj → array of flat objs with primitive value type and nest depth in original obj
+> nested obj → collection containing all primitive value types and corresponding nest depth
 
 
 ## Install
@@ -11,35 +11,35 @@ npm install --save birds-eye
 
 ## Usage
 
-nested object:
+object with nesting:
 ```js
 const obj = {
-  num: 42,
-  q: {
-    name: 4
+  a: 42,
+  b: {
+    c: 4
   },
-  parent: {
-    once: 'once',
-    twice: '22',
-    thrice: {},
-    fourTimes: {
-      bool: true,
-      m: null,
-      n: {},
-      o: {
-        p: 42,
-        q: {
-          r: undefined
+  d: {
+    e: 'once',
+    f: '22',
+    g: {},
+    h: {
+      i: true,
+      j: null,
+      k: {},
+      l: {
+        m: 42,
+        n: {
+          o: undefined
         }
       },
-      s: 42
+      p: 42
     }
   },
-  t: true
+  q: true
 }
 ```
 
-overview of nested structure:
+overview of nested structure of primitives:
 ```js
 console.log(birdsEye(obj).structure);
 // => 
@@ -55,8 +55,9 @@ console.log(birdsEye(obj).structure);
   { type: 'boolean', depth: 2 } ];
 ```
 
-return all types found at a given nest depth:
+return all primitive types found at a given nest depth:
 ```js
 console.log(birdsEye(obj).atDepth(2)); // => ['string', 'string', 'boolean']
 console.log(birdsEye(obj).atDepth(4)); // => ['number', 'number']
+console.log(birdsEye(obj).atDepth(42)); // => []
 ```
