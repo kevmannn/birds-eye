@@ -1,6 +1,6 @@
 # birds-eye
 
-> nested obj => array of flat objs with value type & nest depth in original obj
+> nested obj → array of flat objs with value type & nest depth in original obj
 
 
 ## Install
@@ -50,6 +50,6 @@ console.log(birdsEye(obj).structure);
   { type: 'number', depth: 4 },
   { type: 'boolean', depth: 2 } ];
 
-console.log(birdsEye(obj).atDepth(1)); // => ['string', 'string']
-console.log(birdsEye(obj).atDepth(5)); // => ['undefined']
+console.log(birdsEye(obj).atDepth(2)); // => ['string', 'string', 'boolean']
+console.log(birdsEye(obj).atDepth(4)); // => ['number', 'number']
 ```

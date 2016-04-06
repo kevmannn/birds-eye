@@ -1,7 +1,6 @@
 'use strict';
 const isPrimitive = require('is-primitive');
 
-// TODO: git push, npm publish, travis ci
 module.exports = function (value) {
 
   if (isPrimitive(value)) return { structure: [typeof value] };

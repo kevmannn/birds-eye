@@ -1,7 +1,7 @@
 {
   "name": "birds-eye",
   "version": "0.1.0",
-  "description": "nested obj => array of flat objs with value type & depth of nesting in original obj",
+  "description": "nested obj → array of flat objs with value type & depth of nesting in original obj",
   "main": "index.js",
   "scripts": {
     "test": "ava"
