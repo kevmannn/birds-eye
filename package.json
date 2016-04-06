@@ -1,0 +1,25 @@
+{
+  "name": "birds-eye",
+  "version": "0.1.0",
+  "description": "nested obj => array of flat objs with value type & depth of nesting in original obj",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "keywords": [
+    "inspect",
+    "map",
+    "nested",
+    "object",
+    "types",
+    "typeof"
+  ],
+  "author": "Kevin Donahue <kevindonahuedevelopment@gmail.com> (https://twitter.com/immutable_kant)",
+  "license": "MIT",
+  "dependencies": {
+    "is-primitive": "^2.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.13.0"
+  }
+}
