@@ -1,7 +1,7 @@
 {
   "name": "birds-eye",
-  "version": "0.1.2",
-  "description": "nested obj → array of flat objs with value type and nest depth in original obj",
+  "version": "0.1.3",
+  "description": "nested obj → array of flat objs with primitive value type and nest depth in original obj",
   "main": "index.js",
   "scripts": {
     "test": "ava"
@@ -14,6 +14,7 @@
     "nested",
     "nest",
     "object",
+    "primitive",
     "types",
     "typeof"
   ],
@@ -24,5 +25,9 @@
   },
   "devDependencies": {
     "ava": "^0.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevmannn/birds-eye"
   }
 }
