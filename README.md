@@ -1,6 +1,6 @@
 # birds-eye
 
-> nested obj → array of flat objs with value type & nest depth in original obj
+> nested obj → array of flat objs with value type and nest depth in original obj
 
 
 ## Install

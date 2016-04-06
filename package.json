@@ -1,15 +1,18 @@
 {
   "name": "birds-eye",
-  "version": "0.1.1",
-  "description": "nested obj → array of flat objs with value type & depth of nesting in original obj",
+  "version": "0.1.2",
+  "description": "nested obj → array of flat objs with value type and nest depth in original obj",
   "main": "index.js",
   "scripts": {
     "test": "ava"
   },
   "keywords": [
+    "flat",
+    "flatten",
     "inspect",
     "map",
     "nested",
+    "nest",
     "object",
     "types",
     "typeof"
