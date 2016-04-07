@@ -5,7 +5,10 @@ module.exports = function (value) {
 
   if (isPrimitive(value)) return { structure: [typeof value] };
 
+  let endOfObj = null;
   const mapTypeStructure = (obj, context, depth) => {
+
+    const currentKeys = Object.keys(obj);
 
     context = context || [];
     depth = depth || 0;
@@ -16,10 +19,12 @@ module.exports = function (value) {
         if (!isPrimitive(obj[k]) && !Object.keys(obj[k]).length) continue;
 
         if (!isPrimitive(obj[k]) && typeof obj[k] !== 'function') {
+          if (endOfObj) depth--;
           mapTypeStructure(obj[k], context, ++depth);
         } else if (isPrimitive(obj[k])) {
           const type = obj[k] === null ? null : typeof obj[k];
-          context.push({ type, depth });
+          endOfObj = k === currentKeys[currentKeys.length - 1];
+          context.push({ type: type + '', depth: depth });
         }
       }
     }

@@ -1,22 +1,25 @@
 {
   "name": "birds-eye",
-  "version": "0.1.4",
-  "description": "nested obj → collection containing all primitive value types and corresponding nest depth",
+  "version": "0.2.0",
+  "description": "obj with nesting → collection containing all primitive value types and corresponding nest depths",
   "main": "index.js",
   "scripts": {
     "test": "ava"
   },
   "keywords": [
+    "collection",
     "deep",
     "depth",
     "flat",
     "flatten",
     "inspect",
     "map",
-    "nested",
     "nest",
+    "nested",
+    "nesting",
     "object",
     "primitive",
+    "type",
     "types",
     "typeof"
   ],
