@@ -15,39 +15,32 @@ object with nesting:
 ```js
 const obj = {
   a: 42,
-  b: {
-    ba: 4
-  },
+  b: {},
   c: {
-    ca: 22,
-    cb: {
-      cba: 4
+    d: 22,
+    e: {
+      f: 4
     }
   },
-  d: {
-    e: Math.E,
-    f: (n) => n * n,
-    g: {},
-    h: {
-      i: true,
-      j: false,
-      k: [],
-      l: {
-        i: {
-          n: {
-            w: {
-              a: {
-                r: 'd'
-              }
-            }
+  g: {
+    h: Math.E,
+    i: (n) => n * n,
+    j: {},
+    k: {
+      l: true,
+      m: [],
+      n: {
+        o: {
+          p: {
+            q: 'Q'
           }
         },
-        p: null
+        r: null
       },
-      q: 42
+      s: 42
     }
   },
-  r: true
+  t: true
 }
 ```
 
@@ -57,12 +50,10 @@ console.log(birdsEye(obj).structure);
 // => 
 [ { type: 'number', depth: 0 },
   { type: 'number', depth: 1 },
-  { type: 'number', depth: 1 },
   { type: 'number', depth: 2 },
   { type: 'number', depth: 1 },
   { type: 'boolean', depth: 2 },
-  { type: 'boolean', depth: 2 },
-  { type: 'string', depth: 7 },
+  { type: 'string', depth: 5 },
   { type: 'null', depth: 4 },
   { type: 'number', depth: 3 },
   { type: 'boolean', depth: 1 } ]
@@ -70,7 +61,7 @@ console.log(birdsEye(obj).structure);
 
 return all primitive types found at a given nest depth:
 ```js
-console.log(birdsEye(obj).atDepth(1)); // => ['number', 'number', 'number', 'boolean']
-console.log(birdsEye(obj).atDepth(7)); // => ['string']
+console.log(birdsEye(obj).atDepth(1)); // => ['number', 'number', 'boolean']
+console.log(birdsEye(obj).atDepth(5)); // => ['string']
 console.log(birdsEye(obj).atDepth(42)); // => []
 ```

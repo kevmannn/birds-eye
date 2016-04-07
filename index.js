@@ -19,12 +19,18 @@ module.exports = function (value) {
         if (!isPrimitive(obj[k]) && !Object.keys(obj[k]).length) continue;
 
         if (!isPrimitive(obj[k]) && typeof obj[k] !== 'function') {
+
           if (endOfObj) depth--;
           mapTypeStructure(obj[k], context, ++depth);
+          
         } else if (isPrimitive(obj[k])) {
+
           const type = obj[k] === null ? null : typeof obj[k];
           endOfObj = k === currentKeys[currentKeys.length - 1];
-          context.push({ type: type + '', depth: depth });
+          context.push({
+            type: type + '',
+            depth: depth
+          })
         }
       }
     }
