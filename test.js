@@ -38,9 +38,9 @@ const out =
   { type: 'number', depth: 1 },
   { type: 'boolean', depth: 2 },
   { type: 'string', depth: 5 },
-  { type: 'null', depth: 4 },
-  { type: 'number', depth: 3 },
-  { type: 'boolean', depth: 1 } ]
+  { type: 'null', depth: 3 },
+  { type: 'number', depth: 2 },
+  { type: 'boolean', depth: 0 } ]
 
 test('structure', t => {
   t.deepEqual(birdsEye(obj).structure, out);
@@ -52,10 +52,10 @@ test('structure', t => {
 })
 
 test('atDepth', t => {
-  t.deepEqual(birdsEye(obj).atDepth(0), ['number']);
-  t.deepEqual(birdsEye(obj).atDepth(1), ['number', 'number', 'boolean']);
-  t.deepEqual(birdsEye(obj).atDepth(2), ['number', 'boolean']);
-  t.deepEqual(birdsEye(obj).atDepth(4), ['null']);
+  t.deepEqual(birdsEye(obj).atDepth(0), ['number', 'boolean']);
+  t.deepEqual(birdsEye(obj).atDepth(1), ['number', 'number']);
+  t.deepEqual(birdsEye(obj).atDepth(2), ['number', 'boolean', 'number']);
+  t.deepEqual(birdsEye(obj).atDepth(4), []);
   t.deepEqual(birdsEye(obj).atDepth(5), ['string']);
   t.deepEqual(birdsEye(obj).atDepth(100), []);
   t.deepEqual(birdsEye(obj).atDepth(1.2), []);

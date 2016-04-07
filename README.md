@@ -1,6 +1,7 @@
 # birds-eye
 
 > obj with nesting → collection containing all primitive value types and corresponding nest depths
+
 [![Build Status](https://travis-ci.org/kevmannn/birds-eye.svg?branch=master)](https://travis-ci.org/kevmannn/birds-eye)
 
 ## Install
@@ -54,14 +55,14 @@ console.log(birdsEye(obj).structure);
   { type: 'number', depth: 1 },
   { type: 'boolean', depth: 2 },
   { type: 'string', depth: 5 },
-  { type: 'null', depth: 4 },
-  { type: 'number', depth: 3 },
-  { type: 'boolean', depth: 1 } ]
+  { type: 'null', depth: 3 },
+  { type: 'number', depth: 2 },
+  { type: 'boolean', depth: 0 } ]
 ```
 
 return all primitive types found at a given nest depth:
 ```js
-console.log(birdsEye(obj).atDepth(1)); // => ['number', 'number', 'boolean']
+console.log(birdsEye(obj).atDepth(1)); // => ['number', 'number']
 console.log(birdsEye(obj).atDepth(5)); // => ['string']
 console.log(birdsEye(obj).atDepth(42)); // => []
 ```

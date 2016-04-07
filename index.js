@@ -16,13 +16,12 @@ module.exports = function (value) {
     for (const k in obj) {
       if (obj.hasOwnProperty(k)) {
 
+        if (endOfObj && depth > 0) depth--;
         if (!isPrimitive(obj[k]) && !Object.keys(obj[k]).length) continue;
 
         if (!isPrimitive(obj[k]) && typeof obj[k] !== 'function') {
-
-          if (endOfObj) depth--;
+          endOfObj = false;
           mapTypeStructure(obj[k], context, ++depth);
-          
         } else if (isPrimitive(obj[k])) {
 
           const type = obj[k] === null ? null : typeof obj[k];
