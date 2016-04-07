@@ -59,4 +59,6 @@ test('atDepth', t => {
   t.deepEqual(birdsEye(obj).atDepth(5), ['string']);
   t.deepEqual(birdsEye(obj).atDepth(100), []);
   t.deepEqual(birdsEye(obj).atDepth(1.2), []);
+  t.deepEqual(birdsEye(obj).atDepth(+Infinity), []);
+  t.deepEqual(birdsEye(obj).atDepth(-Infinity), []);
 })
