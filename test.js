@@ -1,7 +1,7 @@
 import test from 'ava';
 import birdsEye from './';
 
-const obj = {
+const objOne = {
   a: 42,
   b: {},
   c: {
@@ -31,7 +31,7 @@ const obj = {
   t: true
 }
 
-const out = 
+const structureOne = 
 [ { type: 'number', depth: 0 },
   { type: 'number', depth: 1 },
   { type: 'number', depth: 2 },
@@ -43,7 +43,7 @@ const out =
   { type: 'boolean', depth: 0 } ]
 
 test('structure', t => {
-  t.deepEqual(birdsEye(obj).structure, out);
+  t.deepEqual(birdsEye(objOne).structure, structureOne);
   t.deepEqual(birdsEye(42).structure, ['number']);
   t.deepEqual(birdsEye('x').structure, ['string']);
   t.deepEqual(birdsEye(true).structure, ['boolean']);
@@ -52,13 +52,14 @@ test('structure', t => {
 })
 
 test('atDepth', t => {
-  t.deepEqual(birdsEye(obj).atDepth(0), ['number', 'boolean']);
-  t.deepEqual(birdsEye(obj).atDepth(1), ['number', 'number']);
-  t.deepEqual(birdsEye(obj).atDepth(2), ['number', 'boolean', 'number']);
-  t.deepEqual(birdsEye(obj).atDepth(4), []);
-  t.deepEqual(birdsEye(obj).atDepth(5), ['string']);
-  t.deepEqual(birdsEye(obj).atDepth(100), []);
-  t.deepEqual(birdsEye(obj).atDepth(1.2), []);
-  t.deepEqual(birdsEye(obj).atDepth(+Infinity), []);
-  t.deepEqual(birdsEye(obj).atDepth(-Infinity), []);
+  t.deepEqual(birdsEye(objOne).atDepth(0), ['number', 'boolean']);
+  t.deepEqual(birdsEye(objOne).atDepth(1), ['number', 'number']);
+  t.deepEqual(birdsEye(objOne).atDepth(2), ['number', 'boolean', 'number']);
+  t.deepEqual(birdsEye(objOne).atDepth(4), []);
+  t.deepEqual(birdsEye(objOne).atDepth(5), ['string']);
+  t.deepEqual(birdsEye(objOne).atDepth(100), []);
+  t.deepEqual(birdsEye(objOne).atDepth(1.2), []);
+  t.deepEqual(birdsEye(objOne).atDepth(-2), []);
+  t.deepEqual(birdsEye(objOne).atDepth(+Infinity), []);
+  t.deepEqual(birdsEye(objOne).atDepth(-Infinity), []);
 })

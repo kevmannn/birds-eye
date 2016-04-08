@@ -23,7 +23,7 @@
     "types",
     "typeof"
   ],
-  "author": "Kevin Donahue <kevindonahuedevelopment@gmail.com> (https://twitter.com/immutable_kant)",
+  "author": "Kevin Donahue <kevindonahuedevelopment@gmail.com> (https://twitter.com/recur_excur)",
   "license": "MIT",
   "dependencies": {
     "is-primitive": "^2.0.0"

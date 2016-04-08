@@ -17,9 +17,11 @@ module.exports = function (value) {
       if (obj.hasOwnProperty(k)) {
 
         if (endOfObj && depth > 0) depth--;
+
         if (!isPrimitive(obj[k]) && !Object.keys(obj[k]).length) continue;
 
         if (!isPrimitive(obj[k]) && typeof obj[k] !== 'function') {
+          
           endOfObj = false;
           mapTypeStructure(obj[k], context, ++depth);
         } else if (isPrimitive(obj[k])) {
