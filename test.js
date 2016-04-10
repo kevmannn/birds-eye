@@ -38,7 +38,7 @@ const structureOne =
   { type: 'number', depth: 1 },
   { type: 'boolean', depth: 2 },
   { type: 'string', depth: 5 },
-  { type: null, depth: 3 },
+  { type: 'null', depth: 3 },
   { type: 'number', depth: 2 },
   { type: 'boolean', depth: 0 } ]
 
@@ -47,7 +47,7 @@ test('structure', t => {
   t.deepEqual(birdsEye(42).structure, ['number']);
   t.deepEqual(birdsEye('x').structure, ['string']);
   t.deepEqual(birdsEye(true).structure, ['boolean']);
-  t.deepEqual(birdsEye(null).structure, [null]);
+  t.deepEqual(birdsEye(null).structure, ['null']);
   t.deepEqual(birdsEye(undefined).structure, ['undefined']);
   t.deepEqual(birdsEye((n) => Math.sqrt(n)).structure, []);
 })
