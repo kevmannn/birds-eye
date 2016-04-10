@@ -3,7 +3,7 @@ const isPrimitive = require('is-primitive');
 
 module.exports = function (value) {
 
-  if (isPrimitive(value)) return { structure: [typeof value] };
+  if (isPrimitive(value)) return { structure: [value === null ? null : typeof value] };
 
   let endOfObj = null;
   const mapTypeStructure = (obj, context, depth) => {
@@ -21,7 +21,7 @@ module.exports = function (value) {
         if (!isPrimitive(obj[k]) && !Object.keys(obj[k]).length) continue;
 
         if (!isPrimitive(obj[k]) && typeof obj[k] !== 'function') {
-          
+
           endOfObj = false;
           mapTypeStructure(obj[k], context, ++depth);
         } else if (isPrimitive(obj[k])) {
@@ -29,7 +29,7 @@ module.exports = function (value) {
           const type = obj[k] === null ? null : typeof obj[k];
           endOfObj = k === currentKeys[currentKeys.length - 1];
           context.push({
-            type: type + '',
+            type: type,
             depth: depth
           })
         }

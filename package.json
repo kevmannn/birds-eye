@@ -1,6 +1,6 @@
 {
   "name": "birds-eye",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "obj with nesting → collection containing all primitive value types and corresponding nest depths",
   "main": "index.js",
   "scripts": {
@@ -17,11 +17,14 @@
     "nest",
     "nested",
     "nesting",
+    "obj",
     "object",
     "primitive",
     "type",
     "types",
-    "typeof"
+    "typeof",
+    "unnest",
+    "unnesting"
   ],
   "author": "Kevin Donahue <kevindonahuedevelopment@gmail.com> (https://twitter.com/recur_excur)",
   "license": "MIT",

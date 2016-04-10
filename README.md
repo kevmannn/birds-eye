@@ -55,7 +55,7 @@ console.log(birdsEye(obj).structure);
   { type: 'number', depth: 1 },
   { type: 'boolean', depth: 2 },
   { type: 'string', depth: 5 },
-  { type: 'null', depth: 3 },
+  { type: null, depth: 3 },
   { type: 'number', depth: 2 },
   { type: 'boolean', depth: 0 } ]
 ```
