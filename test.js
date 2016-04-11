@@ -30,7 +30,6 @@ const objOne = {
   },
   t: true
 }
-
 const structureOne = 
 [ { type: 'number', depth: 0 },
   { type: 'number', depth: 1 },
@@ -42,8 +41,21 @@ const structureOne =
   { type: 'number', depth: 2 },
   { type: 'boolean', depth: 0 } ]
 
+const objTwo = [2,[42,[[[true]]],'n',[1e6]], undefined];
+const structureTwo = 
+[ { type: 'number', depth: 0 },
+  { type: 'number', depth: 1 },
+  { type: 'boolean', depth: 4 },
+  { type: 'string', depth: 1 },
+  { type: 'number', depth: 2 },
+  { type: 'undefined', depth: 0 } ]
+
 test('structure', t => {
   t.deepEqual(birdsEye(objOne).structure, structureOne);
+  t.deepEqual(birdsEye(objTwo).structure, structureTwo);
+})
+
+test('flatInputStructure', t => {
   t.deepEqual(birdsEye(42).structure, ['number']);
   t.deepEqual(birdsEye('x').structure, ['string']);
   t.deepEqual(birdsEye(true).structure, ['boolean']);

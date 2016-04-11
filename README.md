@@ -66,3 +66,20 @@ console.log(birdsEye(obj).atDepth(1)); // => ['number', 'number']
 console.log(birdsEye(obj).atDepth(5)); // => ['string']
 console.log(birdsEye(obj).atDepth(42)); // => []
 ```
+
+This of course also works with nested arrays:
+```js
+const arr = [2,[42,[[[true]]],'n',[1e6]], undefined];
+console.log(birdsEye(arr).structure);
+// =>
+[ { type: 'number', depth: 0 },
+  { type: 'number', depth: 1 },
+  { type: 'boolean', depth: 4 },
+  { type: 'string', depth: 1 },
+  { type: 'number', depth: 2 },
+  { type: 'undefined', depth: 0 } ]
+```
+
+## License
+
+MIT © [Kevin Donahue](https://twitter.com/recur_excur)
