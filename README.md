@@ -15,33 +15,21 @@ npm install --save birds-eye
 object with nesting:
 ```js
 const obj = {
-  a: 42,
-  b: {},
-  c: {
-    d: 22,
-    e: {
-      f: 4
-    }
-  },
-  g: {
-    h: Math.E,
-    i: (n) => n * n,
-    j: {},
-    k: {
-      l: true,
-      m: [],
-      n: {
-        o: {
-          p: {
-            q: 'Q'
-          }
-        },
-        r: null
+  i: Math.E,
+  j: (n) => n * n,
+  k: {
+    l: true,
+    m: [],
+    n: {
+      o: {
+        p: {
+          q: 'Q'
+        }
       },
-      s: 42
+      r: null
     }
   },
-  t: true
+  s: 42
 }
 ```
 
@@ -50,24 +38,20 @@ overview of nested structure of primitives:
 console.log(birdsEye(obj).structure);
 // => 
 [ { type: 'number', depth: 0 },
-  { type: 'number', depth: 1 },
-  { type: 'number', depth: 2 },
-  { type: 'number', depth: 1 },
-  { type: 'boolean', depth: 2 },
-  { type: 'string', depth: 5 },
-  { type: 'null', depth: 3 },
-  { type: 'number', depth: 2 },
-  { type: 'boolean', depth: 0 } ]
+  { type: 'boolean', depth: 1 },
+  { type: 'string', depth: 4 },
+  { type: 'null', depth: 2 },
+  { type: 'number', depth: 0 } ]
 ```
 
 return all primitive types found at a given nest depth:
 ```js
-console.log(birdsEye(obj).atDepth(1)); // => ['number', 'number']
-console.log(birdsEye(obj).atDepth(5)); // => ['string']
+console.log(birdsEye(obj).atDepth(0)); // => ['number', 'number']
+console.log(birdsEye(obj).atDepth(4)); // => ['string']
 console.log(birdsEye(obj).atDepth(42)); // => []
 ```
 
-This of course also works with nested arrays:
+this of course also works with nested arrays:
 ```js
 const arr = [2,[42,[[[true]]],'n',[1e6]], undefined];
 console.log(birdsEye(arr).structure);
