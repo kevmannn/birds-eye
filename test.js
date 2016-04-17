@@ -1,67 +1,35 @@
 import test from 'ava';
-import birdsEye from './';
-
-const o = {
-  i: Math.E,
-  j: (n) => n * n,
-  k: {
-    l: true,
-    m: [],
-    n: {
-      o: {
-        p: {
-          q: 'Q'
-        }
-      },
-      r: null
-    }
-  },
-  s: 42
-}
-const oStructure = 
-[ { type: 'number', depth: 0 },
-  { type: 'boolean', depth: 1 },
-  { type: 'string', depth: 4 },
-  { type: 'null', depth: 2 },
-  { type: 'number', depth: 0 } ]
-
-const a = [2,[42,[[[true]]],'n',[1e6]], undefined];
-const aStructure = 
-[ { type: 'number', depth: 0 },
-  { type: 'number', depth: 1 },
-  { type: 'boolean', depth: 4 },
-  { type: 'string', depth: 1 },
-  { type: 'number', depth: 2 },
-  { type: 'undefined', depth: 0 } ]
+import fn from './';
+import map from './fixtures/map.js';
 
 test('.structure', t => {
-  t.deepEqual(birdsEye(o).structure, oStructure);
-  t.deepEqual(birdsEye(a).structure, aStructure);
+  t.deepEqual(fn(map.o.in).structure, map.o.out);
+  t.deepEqual(fn(map.a.in).structure, map.a.out);
 })
 
-test('.structure for flat inputs', t => {
-  t.deepEqual(birdsEye(42).structure, ['number']);
-  t.deepEqual(birdsEye('x').structure, ['string']);
-  t.deepEqual(birdsEye(true).structure, ['boolean']);
-  t.deepEqual(birdsEye(null).structure, ['null']);
-  t.deepEqual(birdsEye(undefined).structure, ['undefined']);
-  t.deepEqual(birdsEye((n) => Math.sqrt(n)).structure, []);
-  t.deepEqual(birdsEye({}).structure, []);
+test('.structure returns types for flat inputs', t => {
+  t.deepEqual(fn(42).structure, ['number']);
+  t.deepEqual(fn('x').structure, ['string']);
+  t.deepEqual(fn(true).structure, ['boolean']);
+  t.deepEqual(fn(null).structure, ['null']);
+  t.deepEqual(fn(undefined).structure, ['undefined']);
+  t.deepEqual(fn((n) => Math.sqrt(n)).structure, []);
+  t.deepEqual(fn({}).structure, []);
 })
 
-test('.atDepth()', t => {
-  t.deepEqual(birdsEye(o).atDepth(0), ['number', 'number']);
-  t.deepEqual(birdsEye(o).atDepth(2), ['null']);
-  t.deepEqual(birdsEye(o).atDepth(4), ['string']);
-  t.deepEqual(birdsEye(o).atDepth(5), []);
-  t.deepEqual(birdsEye(o).atDepth(1.2), []);
-  t.deepEqual(birdsEye(o).atDepth(-2), []);
-  t.deepEqual(birdsEye(o).atDepth(+Infinity), []);
-  t.deepEqual(birdsEye(o).atDepth(-Infinity), []);
+test('.atDepth() lists types at given depth', t => {
+  t.deepEqual(fn(map.o.in).atDepth(0), ['number', 'number']);
+  t.deepEqual(fn(map.o.in).atDepth(2), ['null']);
+  t.deepEqual(fn(map.o.in).atDepth(4), ['string']);
+  t.deepEqual(fn(map.o.in).atDepth(5), []);
+  t.deepEqual(fn(map.o.in).atDepth(1.2), []);
+  t.deepEqual(fn(map.o.in).atDepth(-2), []);
+  t.deepEqual(fn(map.o.in).atDepth(+Infinity), []);
+  t.deepEqual(fn(map.o.in).atDepth(-Infinity), []);
 
-  t.deepEqual(birdsEye(a).atDepth(0), ['number', 'undefined']);
-  t.deepEqual(birdsEye(a).atDepth(1), ['number', 'string']);
-  t.deepEqual(birdsEye(a).atDepth(0.1), []);
-  t.deepEqual(birdsEye(a).atDepth(false), []);
-  t.deepEqual(birdsEye(a).atDepth('x'), []);
+  t.deepEqual(fn(map.a.in).atDepth(0), ['number', 'undefined']);
+  t.deepEqual(fn(map.a.in).atDepth(1), ['number', 'string']);
+  t.deepEqual(fn(map.a.in).atDepth(0.1), []);
+  t.deepEqual(fn(map.a.in).atDepth(false), []);
+  t.deepEqual(fn(map.a.in).atDepth('x'), []);
 })
