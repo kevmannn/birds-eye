@@ -1,6 +1,6 @@
 {
   "name": "birds-eye",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "obj with nesting → collection containing all primitive value types and corresponding nest depths",
   "main": "index.js",
   "scripts": {
