@@ -1,9 +1,11 @@
 'use strict';
 const isPrimitive = require('is-primitive');
 
-module.exports = function (value) {
+module.exports = value => {
 
-  if (isPrimitive(value)) return { structure: [value === null ? null + '' : typeof value] };
+  if (isPrimitive(value)) {
+    return { structure: [value === null ? null + '' : typeof value] };
+  }
 
   let endOfObj = null;
   const mapTypeStructure = (obj, context, depth) => {
@@ -17,7 +19,6 @@ module.exports = function (value) {
       if (obj.hasOwnProperty(k)) {
 
         if (endOfObj && depth > 0) depth--;
-
         if (!isPrimitive(obj[k]) && !Object.keys(obj[k]).length) continue;
 
         if (!isPrimitive(obj[k]) && typeof obj[k] !== 'function') {
