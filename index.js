@@ -20,7 +20,6 @@ module.exports = value => {
 
         if (endOfObj && depth > 0) depth--;
         if (!isPrimitive(obj[k]) && !Object.keys(obj[k]).length) continue;
-
         if (!isPrimitive(obj[k]) && typeof obj[k] !== 'function') {
 
           endOfObj = false;
