@@ -1,4 +1,5 @@
 import test from 'ava';
+import _ from 'lodash';
 import map from './map';
 import fn from './';
 
@@ -16,31 +17,17 @@ test.failing('fn maps correct type and depth structure', t => {
 
 test.failing('fn returns correct type on flat input', t => {
   values.forEach((v, i) => t.is(fn(v), primitives[i]));
+  t.deepEqual(fn((n) => Math.sqrt(n)), []);
+  t.deepEqual(fn({}), []);
 })
 
-// test.skip('fn returns types for flat inputs', t => {
-//   t.deepEqual(fn(42), ['number']);
-//   t.deepEqual(fn('x'), ['string']);
-//   t.deepEqual(fn(true), ['boolean']);
-//   t.deepEqual(fn(null), ['null']);
-//   t.deepEqual(fn(undefined), ['undefined']);
-//   t.deepEqual(fn((n) => Math.sqrt(n)), []);
-//   t.deepEqual(fn({}), []);
-// })
-
-// test.skip('.atDepth() lists types at given depth', t => {
+// test.failing('.atDepth() returns correct types at depth n', t => {
 //   t.deepEqual(fn(map.o.in).atDepth(0), ['number', 'number']);
-//   t.deepEqual(fn(map.o.in).atDepth(2), ['null']);
-//   t.deepEqual(fn(map.o.in).atDepth(4), ['string']);
-//   t.deepEqual(fn(map.o.in).atDepth(5), []);
 //   t.deepEqual(fn(map.o.in).atDepth(1.2), []);
 //   t.deepEqual(fn(map.o.in).atDepth(-2), []);
 //   t.deepEqual(fn(map.o.in).atDepth(+Infinity), []);
-//   t.deepEqual(fn(map.o.in).atDepth(-Infinity), []);
 
 //   t.deepEqual(fn(map.a.in).atDepth(0), ['number', 'undefined']);
-//   t.deepEqual(fn(map.a.in).atDepth(1), ['number', 'string']);
 //   t.deepEqual(fn(map.a.in).atDepth(0.1), []);
-//   t.deepEqual(fn(map.a.in).atDepth(false), []);
 //   t.deepEqual(fn(map.a.in).atDepth('x'), []);
 // })
