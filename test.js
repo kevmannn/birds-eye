@@ -6,9 +6,9 @@ import fn from './';
 const values = [true, 42, 'x', undefined, null];
 const primitives = values.map(v => v === null ? null + '' : typeof v);
 
-console.log(fn(map.o.in));
-console.log('\n\n');
-console.log(map.o.out);
+// console.log(fn(map.o.in));
+// console.log('\n\n');
+// console.log(map.o.out);
 
 test.failing('fn maps correct type and depth structure', t => {
   t.deepEqual(fn(map.o.in), map.o.out);
