@@ -14,7 +14,7 @@ module.exports.atDepth = (value, n) => {
   })
 }
 
-function mapTypeStructure(obj, memo, depth, isEnd) {
+function mapTypeStructure(obj, memo, depth, endOfObj) {
   const nonObj = v => isPrimitive(v) || typeof v === 'function';
 
   memo = memo || [];
@@ -23,9 +23,9 @@ function mapTypeStructure(obj, memo, depth, isEnd) {
   _.forEach(obj, v => {
     const type = v === null ? null + '' : typeof v;
 
-    // if (isEnd && depth > 0) depth--;
+    // if (endOfObj && depth > 0) depth--;
     if (isPrimitive(v)) memo.push({ type, depth });
-    else if (!nonObj(v)) mapTypeStructure(v, memo, ++depth, isEnd);
+    else if (!nonObj(v)) mapTypeStructure(v, memo, ++depth, endOfObj);
   })
 
   return memo;

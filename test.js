@@ -6,16 +6,16 @@ const values = [true, 42, 'x', undefined, null];
 const primitives = values.map(v => v === null ? null + '' : typeof v);
 
 test.failing('fn maps correct type and depth structure', t => {
-  // console.log(fn(map.o.in));
-  // console.log('\n\n');
-  // console.log(map.o.out);
+  console.log(fn(map.o.in));
+  console.log('\n\n');
+  console.log(map.o.out);
 
   t.deepEqual(fn(map.o.in), map.o.out);
   t.deepEqual(fn(map.a.in), map.a.out);
 })
 
 test.failing('fn returns correct type on flat input', t => {
-  primitives.forEach((type, i) => t.deepEqual(fn(values[i]), type));
+  values.forEach((v, i) => t.is(fn(v), primitives[i]));
 })
 
 // test.skip('fn returns types for flat inputs', t => {
