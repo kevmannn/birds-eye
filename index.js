@@ -21,13 +21,14 @@ function mapTypeStructure(obj, structure, depth) {
 
   _.forEach(obj, (v, i) => {
     const type = v === null ? null + '' : typeof v;
-    const isEmpty = !isPrimitive(v) && !Object.keys(v).length;
 
-    if (isEmpty) return;
-    if (obj[i + 1] === 'undefined') depth--;
+    if (v === obj[Object.keys(obj) - 1]) depth--;
 
-    if (isObj(v)) mapTypeStructure(v, structure, ++depth);
-    else if (isPrimitive(v)) structure.push({ type, depth });
+    if (isObj(v) && Object.keys(v).length) {
+      mapTypeStructure(v, structure, ++depth);
+    } else if (isPrimitive(v)) {
+      structure.push({ type, depth });
+    }
   })
 
   return structure;
