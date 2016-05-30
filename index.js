@@ -19,11 +19,13 @@ function mapTypeStructure(obj, structure, depth) {
   structure = structure || [];
   depth = depth || 0;
 
-  _.forEach(obj, v => {
+  _.forEach(obj, (v, i) => {
     const type = v === null ? null + '' : typeof v;
+    console.log(v, obj[i + 1]);
 
-    if (isPrimitive(v)) structure.push({ type, depth });
-    else if (!nonObj(v)) mapTypeStructure(v, structure, ++depth);
+    // if (obj[i + 1] === 'undefined') depth--;
+    if (!nonObj(v)) mapTypeStructure(v, structure, ++depth);
+    else if (isPrimitive(v)) structure.push({ type, depth });
   })
 
   return structure;
