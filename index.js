@@ -3,7 +3,7 @@ const _ = require('lodash');
 const isPrimitive = require('is-primitive');
 
 const gate = (v, fn) => isPrimitive(v) ? v === null ? null + '' : typeof value : fn(v);
-const nonObj = v => isPrimitive(v) || typeof v === 'function';
+const isObj = v => !isPrimitive(v) && typeof v !== 'function';
 
 module.exports = obj => gate(obj, mapTypeStructure);
 
@@ -21,9 +21,12 @@ function mapTypeStructure(obj, structure, depth) {
 
   _.forEach(obj, (v, i) => {
     const type = v === null ? null + '' : typeof v;
+    const isEmpty = !isPrimitive(v) && !Object.keys(v).length;
 
-    // if (obj[i + 1] === 'undefined') depth--;
-    if (!nonObj(v)) mapTypeStructure(v, structure, ++depth);
+    if (isEmpty) return;
+    if (obj[i + 1] === 'undefined') depth--;
+
+    if (isObj(v)) mapTypeStructure(v, structure, ++depth);
     else if (isPrimitive(v)) structure.push({ type, depth });
   })
 
