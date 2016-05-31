@@ -4,7 +4,7 @@ const isPrimitive = require('is-primitive');
 
 let isEnding = false;
 
-const gate = (v, fn) => isPrimitive(v) ? v === null ? null + '' : typeof value : fn(v);
+const gate = (v, fn) => isPrimitive(v) ? v === null ? null + '' : typeof v : fn(v);
 const isObj = v => !isPrimitive(v) && typeof v !== 'function';
 
 module.exports = obj => gate(obj, mapTypeStructure);
@@ -12,7 +12,7 @@ module.exports = obj => gate(obj, mapTypeStructure);
 module.exports.atDepth = (obj, n) => {
   return gate(obj, o => {
     return mapTypeStructure(o)
-      .filter(o => o.currentDepth === n)
+      .filter(o => o.depth === n)
       .map(o => o.type)
   })
 }
