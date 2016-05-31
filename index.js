@@ -15,19 +15,19 @@ module.exports.atDepth = (obj, n) => {
   })
 }
 
-function mapTypeStructure(obj, structure, depth) {
+function mapTypeStructure(obj, structure, currentDepth) {
   structure = structure || [];
-  depth = depth || 0;
+  currentDepth = currentDepth || 0;
 
   _.forEach(obj, (v, i) => {
     const type = v === null ? null + '' : typeof v;
 
-    if (v === obj[Object.keys(obj) - 1]) depth--;
+    if (v === obj[Object.keys(obj) - 1]) currentDepth--;
 
     if (isObj(v) && Object.keys(v).length) {
-      mapTypeStructure(v, structure, ++depth);
+      mapTypeStructure(v, structure, ++currentDepth);
     } else if (isPrimitive(v)) {
-      structure.push({ type, depth });
+      structure.push({ type, currentDepth });
     }
   })
 
