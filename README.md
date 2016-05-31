@@ -33,9 +33,11 @@ const obj = {
 }
 ```
 
-overview of nested structure of primitives:
+Nested structure of primitive values:
+
 ```js
-console.log(birdsEye(obj).structure);
+console.log(birdsEye(obj));
+
 // => 
 [ { type: 'number', depth: 0 },
   { type: 'boolean', depth: 1 },
@@ -44,17 +46,20 @@ console.log(birdsEye(obj).structure);
   { type: 'number', depth: 0 } ]
 ```
 
-return all primitive types found at a given nest depth:
+Return all primitive types found at a given depth of nesting:
+
 ```js
-console.log(birdsEye(obj).atDepth(0)); // => ['number', 'number']
-console.log(birdsEye(obj).atDepth(4)); // => ['string']
-console.log(birdsEye(obj).atDepth(42)); // => []
+console.log(birdsEye.atDepth(obj, 0)); // => ['number', 'number']
+console.log(birdsEye.atDepth(obj, 4)); // => ['string']
+console.log(birdsEye.atDepth(obj, 42)); // => []
 ```
 
-this of course also works with nested arrays:
+This of course also works with nested arrays:
+
 ```js
 const arr = [2,[42,[[[true]]],'n',[1e6]], undefined];
-console.log(birdsEye(arr).structure);
+console.log(birdsEye(arr));
+
 // =>
 [ { type: 'number', depth: 0 },
   { type: 'number', depth: 1 },
