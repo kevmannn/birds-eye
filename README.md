@@ -1,6 +1,7 @@
 # birds-eye
 
-> obj with nesting → collection containing all primitive value types and corresponding nest depths
+> object or array with nesting → collection containing all primitive value
+types and corresponding nest depths
 
 [![Build Status](https://travis-ci.org/kevmannn/birds-eye.svg?branch=master)](https://travis-ci.org/kevmannn/birds-eye)
 
