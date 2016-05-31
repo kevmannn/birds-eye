@@ -10,7 +10,7 @@ module.exports = obj => gate(obj, mapTypeStructure);
 module.exports.atDepth = (obj, n) => {
   return gate(obj, o => {
     return mapTypeStructure(o)
-      .filter(o => o.depth === n)
+      .filter(o => o.currentDepth === n)
       .map(o => o.type)
   })
 }
@@ -21,8 +21,6 @@ function mapTypeStructure(obj, structure, currentDepth) {
 
   _.forEach(obj, (v, i) => {
     const type = v === null ? null + '' : typeof v;
-
-    if (v === obj[Object.keys(obj) - 1]) currentDepth--;
 
     if (isObj(v) && Object.keys(v).length) {
       mapTypeStructure(v, structure, ++currentDepth);
