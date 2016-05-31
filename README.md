@@ -33,7 +33,7 @@ const obj = {
 }
 ```
 
-Nested structure of primitive values:
+Nested structure of the object's primitive values:
 
 ```js
 console.log(birdsEye(obj));
