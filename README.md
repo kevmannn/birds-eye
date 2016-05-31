@@ -12,7 +12,7 @@ npm install --save birds-eye
 
 ## Usage
 
-object with nesting:
+Object with nesting:
 ```js
 const obj = {
   i: Math.E,
