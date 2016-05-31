@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.o = {
+module.exports.obj = {
   in: {
     i: Math.E,
     j: (n) => n * n,
@@ -26,7 +26,7 @@ module.exports.o = {
     { type: 'number', depth: 0 } ]
 }
 
-module.exports.a = {
+module.exports.arr = {
   in: [2,[42,[[[true]]],'n',[1e6]], undefined],
   out: 
   [ { type: 'number', depth: 0 },
