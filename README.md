@@ -51,7 +51,6 @@ Return all primitive types found at a given depth of nesting:
 
 ```js
 console.log(birdsEye.atDepth(obj, 0)); // => ['number', 'number']
-console.log(birdsEye.atDepth(obj, 4)); // => ['string']
 console.log(birdsEye.atDepth(obj, 42)); // => []
 ```
 
@@ -69,6 +68,21 @@ console.log(birdsEye(arr));
   { type: 'number', depth: 2 },
   { type: 'undefined', depth: 0 } ]
 ```
+
+## API
+
+### birdsEye(obj)
+
+__Arguments__
+
+* `obj` - object|array to map to a one dimensional collection
+
+### birdsEye.atDepth(obj, n)
+
+__Arguments__
+
+* `obj` - same as above
+* `n` - the nest depth that the resulting collection should be filtered by
 
 ## License
 
