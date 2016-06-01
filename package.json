@@ -4,7 +4,8 @@
   "description": "object or array with nesting → collection containing all primitive value types and corresponding nest depths",
   "main": "index.js",
   "scripts": {
-    "test": "ava --verbose"
+    "test": "ava --verbose",
+    "watch": "npm t -- -w"
   },
   "engines": {
     "node": ">=4.0.0"

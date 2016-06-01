@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 import test from 'ava';
 import map from './map';
 import fn from './';
@@ -10,6 +10,10 @@ const objInput = map.obj.in;
 const arrInput = map.arr.in;
 
 test('fn maps correct primitive type and depth structure', t => {
+  const mapIntegrity = m => _.includes(m.map(p => p.type), 'string');
+
+  t.truthy(mapIntegrity(map.obj.out));
+
   t.deepEqual(fn(objInput), map.obj.out);
   t.deepEqual(fn(arrInput), map.arr.out);
 })
