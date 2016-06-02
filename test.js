@@ -4,13 +4,13 @@ import map from './map';
 import fn from './';
 import { atDepth } from './';
 
-const values = [true, 42, 'x', undefined, null];
+const values = [true, 42, 'x', null, undefined];
 const primitives = values.map(v => v === null ? null + '' : typeof v);
 const objInput = map.obj.in;
 const arrInput = map.arr.in;
 
 test('fn maps correct primitive type and depth structure', t => {
-  const mapIntegrity = m => _.includes(m.map(p => p.type), 'string');
+  const mapIntegrity = m => primitives.slice(0, -1).every(p => _.includes(m.map(o => o.type), p));
 
   t.truthy(mapIntegrity(map.obj.out));
 
