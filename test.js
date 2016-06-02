@@ -12,7 +12,7 @@ const arrInput = map.arr.in;
 test('fn maps correct primitive type and depth structure', t => {
   const mapIntegrity = m => primitives.slice(0, -1).every(p => _.includes(m.map(o => o.type), p));
 
-  t.truthy(mapIntegrity(map.obj.out));
+  t.true(mapIntegrity(map.obj.out));
 
   t.deepEqual(fn(objInput), map.obj.out);
   t.deepEqual(fn(arrInput), map.arr.out);
