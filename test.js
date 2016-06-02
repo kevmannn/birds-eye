@@ -20,7 +20,7 @@ test('fn maps correct primitive type and depth structure', t => {
 
 test('fn returns correct type on flat input', t => {
   values.forEach((v, i) => t.is(fn(v), primitives[i]));
-  t.deepEqual(fn((n) => Math.sqrt(n)), []);
+  t.deepEqual(fn(n => Math.sqrt(n)), []);
 })
 
 test('.atDepth() returns correct type on flat input', t => {
