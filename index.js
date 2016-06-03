@@ -3,9 +3,7 @@ const _ = require('lodash');
 const isPrimitive = require('is-primitive');
 
 let isEnding = false;
-
 const gate = (v, fn) => isPrimitive(v) ? v === null ? null + '' : typeof v : fn(v);
-const isObj = v => !isPrimitive(v) && typeof v !== 'function';
 
 module.exports = obj => gate(obj, mapTypeStructure);
 
@@ -26,7 +24,7 @@ function mapTypeStructure(obj, structure, currentDepth) {
 
     if (isEnding && currentDepth > 0) currentDepth--;
 
-    if (isObj(v) && Object.keys(v).length) {
+    if (_.isObject(v) && Object.keys(v).length) {
       mapTypeStructure(v, structure, ++currentDepth);
     } else if (isPrimitive(v)) {
       structure.push({ type, depth: currentDepth });
