@@ -86,4 +86,4 @@ __Arguments__
 
 ## License
 
-MIT © [Kevin Donahue](https://twitter.com/recur_excur)
+MIT © [Kevin Donahue](https://twitter.com/nonnontrivial)
