@@ -1,5 +1,7 @@
 # birds-eye
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kevmannn/birds-eye.svg)](https://greenkeeper.io/)
+
 > object or array with nesting → collection containing all primitive value
 types and corresponding nest depths
 
