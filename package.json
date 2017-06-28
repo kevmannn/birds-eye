@@ -38,7 +38,7 @@
     "lodash": "^4.13.1"
   },
   "devDependencies": {
-    "ava": "^0.19.1"
+    "ava": "^0.20.0"
   },
   "repository": {
     "type": "git",
