@@ -31,17 +31,17 @@
     "unnest",
     "unnesting"
   ],
-  "author": "Kevin Donahue <kevindonahuedevelopment@gmail.com> (https://twitter.com/nonnontrivial)",
+  "author": "Kevin Donahue <nonnontrivial@gmail.com> (https://twitter.com/nonnontrivial)",
   "license": "MIT",
   "dependencies": {
     "is-primitive": "^2.0.0",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "ava": "^0.15.1"
+    "ava": "^0.20.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kevmannn/birds-eye"
+    "url": "https://github.com/nonnontrivial/birds-eye"
   }
 }
