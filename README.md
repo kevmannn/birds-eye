@@ -3,7 +3,7 @@
 > object or array with nesting → collection containing all primitive value types and corresponding nest depths
 
 [![npm version](https://img.shields.io/npm/v/birds-eye.svg?style=flat-square)](https://www.npmjs.com/package/birds-eye)
-[![Build Status](https://travis-ci.org/kevmannn/birds-eye.svg?branch=master)](https://travis-ci.org/kevmannn/birds-eye)
+[![Build Status](https://img.shields.io/travis/nonnontrivial/birds-eye/master.svg?style=flat-square)](https://travis-ci.org/nonnontrivial/birds-eye)
 
 ## Install
 
