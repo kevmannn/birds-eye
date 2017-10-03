@@ -1,5 +1,6 @@
 'use strict';
-const _ = require('lodash');
+const forEach = require('lodash/forEach');
+const isObject = require('lodash/isObject');
 const isPrimitive = require('is-primitive');
 
 let isEnding = false;
@@ -19,12 +20,12 @@ function mapTypeStructure(obj, structure, currentDepth) {
   structure = structure || [];
   currentDepth = currentDepth || 0;
 
-  _.forEach(obj, (v, i) => {
+  forEach(obj, (v, i) => {
     const type = v === null ? null + '' : typeof v;
 
     if (isEnding && currentDepth > 0) currentDepth--;
 
-    if (_.isObject(v) && Object.keys(v).length) {
+    if (isObject(v) && Object.keys(v).length) {
       mapTypeStructure(v, structure, ++currentDepth);
     } else if (isPrimitive(v)) {
       structure.push({ type, depth: currentDepth });

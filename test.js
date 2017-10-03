@@ -1,7 +1,8 @@
-import _ from 'lodash';
 import test from 'ava';
-import map from './map';
+import includes from 'lodash/includes';
+
 import fn from './';
+import map from './map';
 import { atDepth } from './';
 
 const values = [true, 42, 'x', null, undefined];
@@ -10,7 +11,7 @@ const objInput = map.obj.in;
 const arrInput = map.arr.in;
 
 test('fn maps correct primitive type and depth structure', t => {
-  const mapIntegrity = m => primitives.slice(0, -1).every(p => _.includes(m.map(o => o.type), p));
+  const mapIntegrity = m => primitives.slice(0, -1).every(p => includes(m.map(o => o.type), p));
 
   t.true(mapIntegrity(map.obj.out));
 
