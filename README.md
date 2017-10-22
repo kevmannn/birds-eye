@@ -11,10 +11,18 @@
 npm install --save birds-eye
 ```
 
+or
+
+```console
+yarn add birds-eye
+```
+
 ## Usage
 
 Object with nesting:
 ```js
+import birdsEye from 'birds-eye'
+
 const obj = {
   i: Math.E,
   j: (n) => n * n,
@@ -32,11 +40,8 @@ const obj = {
   },
   s: 42
 }
-```
 
-Nested structure of the object's primitive values:
-
-```js
+// Nested structure of the object's primitive values:
 console.log(birdsEye(obj));
 
 // => 
