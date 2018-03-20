@@ -21,7 +21,7 @@ yarn add birds-eye
 
 Object with nesting:
 ```js
-import birdsEye from 'birds-eye'
+import birdsEye from 'birds-eye';
 
 const obj = {
   i: Math.E,
@@ -44,20 +44,21 @@ const obj = {
 // Nested structure of the object's primitive values:
 console.log(birdsEye(obj));
 
-// => 
-[ { type: 'number', depth: 0 },
-  { type: 'boolean', depth: 1 },
-  { type: 'string', depth: 4 },
-  { type: 'null', depth: 2 },
-  { type: 'number', depth: 0 } ]
+// =>
+// [ { type: 'number', depth: 0 },
+//   { type: 'boolean', depth: 1 },
+//   { type: 'string', depth: 4 },
+//   { type: 'null', depth: 2 },
+//   { type: 'number', depth: 0 } ]
+
+// Return all primitive types found at a given depth of nesting:
+
+console.log(birdsEye.atDepth(obj, 0));
+// => ['number', 'number']
+console.log(birdsEye.atDepth(obj, 42));
+// => []
 ```
 
-Return all primitive types found at a given depth of nesting:
-
-```js
-console.log(birdsEye.atDepth(obj, 0)); // => ['number', 'number']
-console.log(birdsEye.atDepth(obj, 42)); // => []
-```
 
 This of course also works with nested arrays:
 
